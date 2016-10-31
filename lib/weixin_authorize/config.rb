@@ -14,7 +14,7 @@ module WeixinAuthorize
     end
 
     def key_expired
-      config.key_expired || 100
+      config.try{ |conf| conf.key_expired } || 100
     end
 
     # 可选配置: RestClient timeout, etc.
